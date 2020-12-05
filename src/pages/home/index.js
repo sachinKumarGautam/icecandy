@@ -4,76 +4,102 @@ import { Link } from "react-router-dom";
 
 const tilesObj = [
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "orange",
+    innerTileImage: "TILE INSIDE MAIN IMAGE A.jpg",
+    smallTile: "TILE-IMAGES-A.png",
+    hoverText: "Kit vs Kat",
+    hoverColor: "rgb(99,202,58)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "red",
+    innerTileImage: "TILE INSIDE MAIN IMAGE B.jpg",
+    smallTile: "TILE-IMAGES-B.png",
+    hoverText: "Simple Samosa",
+    hoverColor: "rgb(254,255,105)",
+    hoverTextColor: "red",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "blue",
+    innerTileImage: "TILE INSIDE MAIN IMAGE C.jpg",
+    smallTile: "TILE-IMAGES-C.png",
+    hoverText: "Kaun Banega <br/> Super star",
+    hoverColor: "rgb(255,22,55)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "teal",
+    innerTileImage: "TILE INSIDE MAIN IMAGE D.jpg",
+    smallTile: "TILE-IMAGES-D.png",
+    hoverText: "Durga",
+    hoverColor: "rgb(63,25,142)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "orange",
+    innerTileImage: "TILE INSIDE MAIN IMAGE E.jpg",
+    smallTile: "TILE-IMAGES-E.png",
+    hoverText: "BAJI",
+    hoverColor: "rgb(0,0,0)",
+    hoverTextColor: "red",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "red",
+    innerTileImage: "TILE INSIDE MAIN IMAGE F.jpg",
+    smallTile: "TILE-IMAGES-F.png",
+    hoverText: "Super <br/> Heroes",
+    hoverColor: "rgb(17,53,203)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
+    innerTileImage: "TILE INSIDE MAIN IMAGE G.jpg",
+    smallTile: "TILE-IMAGES-G.png",
     hoverText: "Sanju",
-    hoverColor: "blue",
+    hoverColor: "rgb(233,129,3)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "teal",
+    innerTileImage: "TILE INSIDE MAIN IMAGE H.jpg",
+    smallTile: "TILE-IMAGES-H.png",
+    hoverText: "Pi Lagu",
+    hoverColor: "rgb(146,159,155)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "orange",
+    innerTileImage: "TILE INSIDE MAIN IMAGE I.jpg",
+    smallTile: "TILE-IMAGES-I.png",
+    hoverText: "Bhoot <br/> busters",
+    hoverColor: "rgb(154,12,225)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "red",
+    innerTileImage: "TILE INSIDE MAIN IMAGE J.jpg",
+    smallTile: "TILE-IMAGES-J.png",
+    hoverText: "Welcome",
+    hoverColor: "rgb(252,41,73)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "blue",
+    innerTileImage: "TILE INSIDE MAIN IMAGE K.jpg",
+    smallTile: "TILE-IMAGES-K.png",
+    hoverText: "Cric X",
+    hoverColor: "rgb(4,117,204)",
   },
   {
-    innerTileImage: "",
-    bgTile: "",
-    hoverText: "Sanju",
-    hoverColor: "teal",
+    innerTileImage: "TILE INSIDE MAIN IMAGE L.jpg",
+    smallTile: "TILE-IMAGES-L.png",
+    hoverText: "Bhagam bhag",
+    hoverColor: "rgb(87,37,180)",
+  },
+  {
+    innerTileImage: "TILE INSIDE MAIN IMAGE M.jpg",
+    smallTile: "TILE-IMAGES-M.png",
+    hoverText: "Gajar ka halwa",
+    hoverColor: "rgb(202,58,164)",
+  },
+  {
+    innerTileImage: "TILE INSIDE MAIN IMAGE N.jpg",
+    smallTile: "TILE-IMAGES-N.png",
+    hoverText: "Hey Bobby!",
+    hoverColor: "rgb(117,198,244)",
+  },
+  {
+    innerTileImage: "TILE INSIDE MAIN IMAGE O.jpg",
+    smallTile: "TILE-IMAGES-O.png",
+    hoverText: "Chote Jasoos",
+    hoverColor: "rgb(254,3,2)",
+  },
+  {
+    innerTileImage: "TILE INSIDE MAIN IMAGE P.jpg",
+    smallTile: "TILE-IMAGES-P.png",
+    hoverText: "Kaun Banega <br/> Mala Maal",
+    hoverColor: "rgb(197,238,103)",
   },
 ];
 
@@ -108,6 +134,7 @@ class Home extends React.Component {
   };
 
   render() {
+    const { selectedTile } = this.state;
     return (
       <div className="container">
         <div>
@@ -145,7 +172,7 @@ class Home extends React.Component {
                       onClick={() => this.openTile(item)}
                     >
                       <img
-                        src="/assets/TILES01.png"
+                        src={`/assets/${item.smallTile}`}
                         alt="tile"
                         className="tile-img"
                       />
@@ -153,7 +180,14 @@ class Home extends React.Component {
                         className="tile-hover-text"
                         style={{ backgroundColor: item.hoverColor }}
                       >
-                        {item.hoverText}
+                        <div
+                          dangerouslySetInnerHTML={{ __html: item.hoverText }}
+                          style={
+                            item.hoverTextColor
+                              ? { color: item.hoverTextColor }
+                              : {}
+                          }
+                        ></div>
                       </div>
                     </div>
                   );
@@ -168,7 +202,7 @@ class Home extends React.Component {
                   </div>
                   <img
                     className="tile-bg"
-                    src="/assets/ICECANDY-WEBSITE_TILE_MAIN_PAGE.jpg"
+                    src={`assets/${selectedTile.innerTileImage}`}
                     alt="tile-bg"
                   />
                 </div>
