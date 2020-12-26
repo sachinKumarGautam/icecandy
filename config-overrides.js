@@ -1,5 +1,7 @@
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
+console.log("sachin", ImageMinimizerPlugin);
+
 module.exports = (config, env) => {
   config.module.rules.push({
     test: /\.(jpe?g|png|gif|svg)$/i,
@@ -7,8 +9,19 @@ module.exports = (config, env) => {
       {
         loader: "file-loader", // Or `url-loader` or your other loader
       },
+      {
+        loader: ImageMinimizerPlugin.loader,
+        options: {
+          severityError: "warning", // Ignore errors on corrupted images
+          minimizerOptions: {
+            plugins: ["gifsicle"],
+          },
+        },
+      },
     ],
   });
+
+  console.log("sachin", ImageMinimizerPlugin);
 
   config.plugins.push(
     new ImageMinimizerPlugin({
@@ -33,5 +46,7 @@ module.exports = (config, env) => {
       },
     })
   );
+
+  console.log("config", config);
   return config;
 };

@@ -6,6 +6,8 @@ import HomepageImage from "../../assets/IC-WEBSITE_1920X1080.jpg";
 import TilesImageA from "../../assets/TILE-IMAGES-A.png";
 import TilesImageInsideA from "../../assets/TILE INSIDE MAIN IMAGE A.jpg";
 
+console.log("Homepage image ", HomepageImage);
+
 const tilesObj = [
   {
     innerTileImage: TilesImageInsideA,
