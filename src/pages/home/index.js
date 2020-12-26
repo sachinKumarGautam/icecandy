@@ -8,6 +8,7 @@ const tilesObj = [
     smallTile: "TILE-IMAGES-A.png",
     hoverText: "Kit vs Kat",
     hoverColor: "rgb(99,202,58)",
+    innerTileMobile: "PORTRAIT.jpg",
   },
   {
     innerTileImage: "TILE INSIDE MAIN IMAGE B.jpg",
@@ -202,7 +203,11 @@ class Home extends React.Component {
                   </div>
                   <img
                     className="tile-bg"
-                    src={`assets/${selectedTile.innerTileImage}`}
+                    src={`assets/${
+                      window.innerWidth > 600
+                        ? selectedTile.innerTileImage
+                        : selectedTile.innerTileMobile
+                    }`}
                     alt="tile-bg"
                   />
                 </div>
