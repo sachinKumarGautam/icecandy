@@ -272,7 +272,11 @@ class Home extends React.Component {
                   </div>
                   <img
                     className="tile-bg"
-                    src={`${selectedTile.innerTileImage}`}
+                    src={`assets/${
+                      window.innerWidth > 600
+                        ? selectedTile.innerTileImage
+                        : selectedTile.innerTileMobile
+                    }`}
                     alt="tile-bg"
                   />
                 </div>

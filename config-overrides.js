@@ -18,7 +18,7 @@ module.exports = (config, env) => {
 
   config.plugins.push(
     new ImageminPlugin({
-      // disable: process.env.NODE_ENV !== 'production', // Disable during development
+      disable: process.env.NODE_ENV !== "production", // Disable during development
       pngquant: {
         quality: "20",
       },
