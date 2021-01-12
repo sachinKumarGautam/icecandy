@@ -6,11 +6,12 @@ module.exports = (config, env) => {
     new ImageminPlugin({
       disable: process.env.NODE_ENV !== "production", // Disable during development
       pngquant: {
-        quality: "50",
+        quality: 50,
+        progressive: true,
       },
       plugins: [
         ImageminMozjpeg({
-          quality: 65,
+          quality: 75,
           progressive: true,
         }),
       ],

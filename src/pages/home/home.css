@@ -3,6 +3,11 @@
   src: url("../../fonts/barthowheel-regular.ttf") format("truetype");
 } */
 
+*:focus {
+  outline: 0;
+  outline: none;
+}
+
 .container {
   background-color: #000;
   display: flex;
@@ -35,15 +40,20 @@
   font-size: 36px;
   grid-template-columns: 1fr 1fr;
   grid-gap: 32px;
-  cursor: pointer;
+  outline: none;
 }
 
-.cta {
+.ctaContainer:focus {
+  outline: none;
+}
+
+.ctaLink {
   text-decoration: none;
+  outline: none;
 }
 
-.aboutLink {
-  color: #fff;
+.ctaLink:focus {
+  outline: none;
 }
 
 .tile {
@@ -82,7 +92,7 @@
 }
 
 .tile-img {
-  height: auto;
+  height: 100%;
   width: 100%;
 }
 
@@ -119,13 +129,21 @@
 .close-btn:hover {
   color: #000;
 }
+@media (min-width: 600px) and (max-width: 1024px) {
+  .tiles-grid-wrapper {
+    grid-auto-rows: auto;
+  }
+  .tile-hover-text {
+    font-size: 18px;
+  }
+}
 
 @media (max-width: 600px) {
   .tiles-grid-wrapper {
     grid-auto-rows: auto;
     grid-template-columns: 1fr;
-    max-width: 600px;
-    min-width: 100%;
+    max-width: 414px;
+    margin: 0 auto;
   }
   .close-btn {
     top: 8px;

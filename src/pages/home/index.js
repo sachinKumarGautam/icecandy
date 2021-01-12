@@ -5,22 +5,22 @@ import { Link } from "react-router-dom";
 import HomepageImageMobile from "../../assets/Home page PORTRAIT.jpg";
 import HomepageImage from "../../assets/Home page.jpg";
 
-import TilesImageA from "../../assets/TILE-IMAGES-A.png";
-import TilesImageB from "../../assets/TILE-IMAGES-B.png";
-import TilesImageC from "../../assets/TILE-IMAGES-C.png";
-import TilesImageD from "../../assets/TILE-IMAGES-D.png";
-import TilesImageE from "../../assets/TILE-IMAGES-E.png";
-import TilesImageF from "../../assets/TILE-IMAGES-F.png";
-import TilesImageG from "../../assets/TILE-IMAGES-G.png";
-import TilesImageH from "../../assets/TILE-IMAGES-H.png";
-import TilesImageI from "../../assets/TILE-IMAGES-I.png";
-import TilesImageJ from "../../assets/TILE-IMAGES-J.png";
-import TilesImageK from "../../assets/TILE-IMAGES-K.png";
-import TilesImageL from "../../assets/TILE-IMAGES-L.png";
-import TilesImageM from "../../assets/TILE-IMAGES-M.png";
-import TilesImageN from "../../assets/TILE-IMAGES-N.png";
-import TilesImageO from "../../assets/TILE-IMAGES-O.png";
-import TilesImageP from "../../assets/TILE-IMAGES-P.png";
+import TilesImageA from "../../assets/Tile images A.png";
+import TilesImageB from "../../assets/Tile images B.png";
+import TilesImageC from "../../assets/Tile images C.png";
+import TilesImageD from "../../assets/Tile images D.png";
+import TilesImageE from "../../assets/Tile images E.png";
+import TilesImageF from "../../assets/Tile images F.png";
+import TilesImageG from "../../assets/Tile images G.png";
+import TilesImageH from "../../assets/Tile images H.png";
+import TilesImageI from "../../assets/Tile images I.png";
+import TilesImageJ from "../../assets/Tile images J.png";
+import TilesImageK from "../../assets/Tile images K.png";
+import TilesImageL from "../../assets/Tile images L.png";
+import TilesImageM from "../../assets/Tile images M.png";
+import TilesImageN from "../../assets/Tile images N.png";
+import TilesImageO from "../../assets/Tile images O.png";
+import TilesImageP from "../../assets/Tile images P.png";
 
 import TilesImageInsideA from "../../assets/TILE INSIDE MAIN IMAGE A.jpg";
 import TilesImageInsideB from "../../assets/TILE INSIDE MAIN IMAGE B.jpg";
@@ -180,7 +180,9 @@ class Home extends React.Component {
     openPopup: false,
   };
 
-  toggleTiles = () => {
+  toggleTiles = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     this.setState(
       (prevState) => ({ showTile: true || !prevState.showTile }),
       () => {
@@ -214,10 +216,13 @@ class Home extends React.Component {
             alt="Homepage"
           />
           <div className="ctaContainer">
-            <div className="cta" onClick={this.toggleTiles}>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={(e) => this.toggleTiles(e)}
+            >
               WORK
             </div>
-            <Link className="cta" to={"/about"}>
+            <Link className="ctaLink" to={"/about"}>
               ABOUT
             </Link>
           </div>
@@ -244,7 +249,10 @@ class Home extends React.Component {
                       <img
                         src={`${item.smallTile}`}
                         alt="tile"
+                        width="414"
+                        height="414"
                         className="tile-img"
+                        loading="lazy"
                       />
                       <div
                         className="tile-hover-text"
@@ -272,6 +280,7 @@ class Home extends React.Component {
                   </div>
                   <img
                     className="tile-bg"
+                    loading="lazy"
                     src={
                       window.innerWidth > 600
                         ? selectedTile.innerTileImage
