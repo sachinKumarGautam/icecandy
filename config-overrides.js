@@ -2,23 +2,23 @@ const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
 
 module.exports = (config, env) => {
-  config.plugins.push(
-    new ImageminPlugin({
-      disable: process.env.NODE_ENV !== "production", // Disable during development
-      pngquant: {
-        quality: 50,
-        progressive: true,
-      },
-      plugins: [
-        ImageminMozjpeg({
-          quality: 75,
-          progressive: true,
-        }),
-      ],
-    })
-  );
-  return config;
-};
+//   config.plugins.push(
+//     new ImageminPlugin({
+//       // disable: process.env.NODE_ENV !== "production", // Disable during development
+//       pngquant: {
+//         quality: 50,
+//         progressive: true,
+//       },
+//       plugins: [
+//         ImageminMozjpeg({
+//           quality: 75,
+//           progressive: true,
+//         }),
+//       ],
+//     })
+//   );
+//   return config;
+// };
 
 // new ImageMinimizerPlugin({
 //   minimizerOptions: {
