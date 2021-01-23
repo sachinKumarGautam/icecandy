@@ -1,10 +1,7 @@
 import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
-import { IKImage, IKContext, IKUpload } from "imagekitio-react";
-
-import HomepageImageMobile from "../../assets/Home page PORTRAIT.jpg";
-import HomepageImage from "../../assets/Home page.jpg";
+import { IKImage, IKContext } from "imagekitio-react";
 
 // import "Tile_images_A.png"A from "../../assets/Tile images A.png";
 // import "Tile_images_A.png"B from "../../assets/Tile images B.png";

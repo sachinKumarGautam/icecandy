@@ -66,7 +66,7 @@
 
 .tiles-grid-wrapper {
   display: grid;
-  grid-auto-rows: 446px;
+  /* grid-auto-rows: 446px; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
