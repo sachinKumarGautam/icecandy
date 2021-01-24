@@ -130,12 +130,14 @@ class Home extends React.Component {
   toggleTiles = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    let homescreen = document.getElementById("homescreen");
+
     this.setState(
       (prevState) => ({ showTile: true || !prevState.showTile }),
       () => {
         setTimeout(() => {
           window.scrollTo({
-            top: window.innerHeight,
+            top: homescreen.offsetHeight,
             left: 0,
             behavior: "smooth",
           });
@@ -145,18 +147,32 @@ class Home extends React.Component {
   };
 
   openTile = (item) => {
-    this.setState({ selectedTile: item, openPopup: true });
+    this.setState(
+      () => ({ selectedTile: item, openPopup: true }),
+      () => {
+        if (this.state.openPopup) {
+          document.body.style.overflow = "hidden";
+        } else {
+          // document.body.style.overflow = "auto";
+          // document.body.style.top = "auto";
+          // document.body.style.left = "auto";
+          // document.body.style.right = "auto";
+          // document.body.style.position = "static";
+        }
+      }
+    );
   };
 
   closePopup = () => {
     this.setState({ openPopup: false });
+    document.body.style.overflow = "auto";
   };
 
   render() {
     const { selectedTile } = this.state;
     return (
       <div className="container">
-        <div style={{ height: "100vh" }}>
+        <div id="homescreen" style={{ height: "100vh" }}>
           <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage
               path={
