@@ -5,7 +5,7 @@ import { IKImage, IKContext } from "imagekitio-react";
 
 const tilesObj = [
   {
-    innerTileImage: "TILE_INSIDE_MAIN_IMAGE_A.jpg",
+    innerTileImage: "Tile_inside_main__images_A.jpg",
     innerTileMobile: "Tile_inside_main__images_A_PORTRAIT.jpg",
     smallTile: "Tile_images_A.png",
     hoverText: "Kit vs Kat",
