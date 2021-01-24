@@ -3,59 +3,6 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import { IKImage, IKContext } from "imagekitio-react";
 
-// import "Tile_images_A.png"A from "../../assets/Tile images A.png";
-// import "Tile_images_A.png"B from "../../assets/Tile images B.png";
-// import "Tile_images_A.png"C from "../../assets/Tile images C.png";
-// import "Tile_images_A.png"D from "../../assets/Tile images D.png";
-// import "Tile_images_A.png"E from "../../assets/Tile images E.png";
-// import "Tile_images_A.png"F from "../../assets/Tile images F.png";
-// import "Tile_images_A.png"G from "../../assets/Tile images G.png";
-// import "Tile_images_A.png"H from "../../assets/Tile images H.png";
-// import "Tile_images_A.png"I from "../../assets/Tile images I.png";
-// import "Tile_images_A.png"J from "../../assets/Tile images J.png";
-// import "Tile_images_A.png"K from "../../assets/Tile images K.png";
-// import "Tile_images_A.png"L from "../../assets/Tile images L.png";
-// import "Tile_images_A.png"M from "../../assets/Tile images M.png";
-// import "Tile_images_A.png"N from "../../assets/Tile images N.png";
-// import "Tile_images_A.png"O from "../../assets/Tile images O.png";
-// import "Tile_images_A.png"P from "../../assets/Tile images P.png";
-
-// import "TILE_INSIDE_MAIN_IMAGE_A from "../../assets/TILE INSIDE MAIN IMAGE A.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_B from "../../assets/TILE INSIDE MAIN IMAGE B.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_C from "../../assets/TILE INSIDE MAIN IMAGE C.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_D from "../../assets/TILE INSIDE MAIN IMAGE D.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_E from "../../assets/TILE INSIDE MAIN IMAGE E.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_F from "../../assets/TILE INSIDE MAIN IMAGE F.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_G from "../../assets/TILE INSIDE MAIN IMAGE G.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_H from "../../assets/TILE INSIDE MAIN IMAGE H.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_I from "../../assets/TILE INSIDE MAIN IMAGE I.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_J from "../../assets/TILE INSIDE MAIN IMAGE J.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_K from "../../assets/TILE INSIDE MAIN IMAGE K.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_L from "../../assets/TILE INSIDE MAIN IMAGE L.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_M from "../../assets/TILE INSIDE MAIN IMAGE M.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_N from "../../assets/TILE INSIDE MAIN IMAGE N.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_O from "../../assets/TILE INSIDE MAIN IMAGE O.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_P from "../../assets/TILE INSIDE MAIN IMAGE P.jpg";
-
-// import "TILE_INSIDE_MAIN_IMAGE_AMobile from "../../assets/Tile inside main  images A PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_BMobile from "../../assets/Tile inside main  images B PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_CMobile from "../../assets/Tile inside main  images C PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_DMobile from "../../assets/Tile inside main  images D PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_EMobile from "../../assets/Tile inside main  images E PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_FMobile from "../../assets/Tile inside main  images F PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_GMobile from "../../assets/Tile inside main  images G PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_HMobile from "../../assets/Tile inside main  images H PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_IMobile from "../../assets/Tile inside main  images I PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_JMobile from "../../assets/Tile inside main  images J PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_KMobile from "../../assets/Tile inside main  images K PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_LMobile from "../../assets/Tile inside main  images L PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_MMobile from "../../assets/Tile inside main  images M PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_NMobile from "../../assets/Tile inside main  images N PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_OMobile from "../../assets/Tile inside main  images O PORTRAIT.jpg";
-// import "TILE_INSIDE_MAIN_IMAGE_PMobile from "../../assets/Tile inside main  images P PORTRAIT.jpg";
-//ik.imagekit.io/nr8jbipyb/Tile_inside_main_images_A_PORTRAIT.jpg?ik-sdk-version=react-1.0.9
-//ik.imagekit.io/nr8jbipyb/TILE_INSIDE_MAIN_IMAGE_A.jpg
-//ik.imagekit.io/nr8jbipyb/Tile_inside_main__images_A_PORTRAIT.jpg
 const tilesObj = [
   {
     innerTileImage: "TILE_INSIDE_MAIN_IMAGE_A.jpg",
@@ -221,11 +168,6 @@ class Home extends React.Component {
               style={{ width: "100%" }}
             />
           </IKContext>
-          {/* <img
-            className="home"
-            src={window.innerWidth > 600 ? HomepageImage : HomepageImageMobile}
-            alt="Homepage"
-          /> */}
           <div className="ctaContainer">
             <div
               style={{ cursor: "pointer" }}
@@ -265,14 +207,6 @@ class Home extends React.Component {
                           loading="lazy"
                         />
                       </IKContext>
-                      {/* <img
-                        src={`${item.smallTile}`}
-                        alt="tile"
-                        width="414"
-                        height="414"
-                        className="tile-img"
-                        loading="lazy"
-                      /> */}
                       <div
                         className="tile-hover-text"
                         style={{ backgroundColor: item.hoverColor }}
@@ -293,7 +227,10 @@ class Home extends React.Component {
             </div>
             {this.state.openPopup ? (
               <div className="popup">
-                <div className="overlay">
+                <div
+                  className="overlay"
+                  style={{ backgroundColor: selectedTile.hoverColor }}
+                >
                   <div onClick={() => this.closePopup()} className="close-btn">
                     X
                   </div>
