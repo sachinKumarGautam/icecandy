@@ -8,7 +8,7 @@ const tilesObj = [
     innerTileImage: "Tile_inside_main__images_A.jpg",
     innerTileMobile: "Tile_inside_main__images_A_PORTRAIT.jpg",
     smallTile: "Tile_images_A.png",
-    hoverText: "Cat vs Keet",
+    hoverText: "Cat & Keet",
     hoverColor: "rgb(99,202,58)",
   },
   {
