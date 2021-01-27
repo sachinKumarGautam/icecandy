@@ -8,7 +8,7 @@ const tilesObj = [
     innerTileImage: "Tile_inside_main__images_A.jpg",
     innerTileMobile: "Tile_inside_main__images_A_PORTRAIT.jpg",
     smallTile: "Tile_images_A.png",
-    hoverText: "Kit vs Kat",
+    hoverText: "Cat vs Keet",
     hoverColor: "rgb(99,202,58)",
   },
   {
@@ -172,7 +172,10 @@ class Home extends React.Component {
     const { selectedTile } = this.state;
     return (
       <div className="container">
-        <div id="homescreen" style={{ height: "100vh" }}>
+        <div
+          id="homescreen"
+          style={{ height: "100vh", textAlign: "center", width: "100vw" }}
+        >
           <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage
               path={
@@ -181,7 +184,7 @@ class Home extends React.Component {
                   : "/Home_page_PORTRAIT.jpg"
               }
               lqip={{ active: true }}
-              style={{ width: "100%" }}
+              style={{ width: "inherit", height: "100%" }}
             />
           </IKContext>
           <div className="ctaContainer">
