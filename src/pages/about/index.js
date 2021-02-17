@@ -9,7 +9,7 @@ class About extends React.Component {
     return (
       <div className="about-page-container">
         <a href="/">
-          <img className="logo" src={"/IC_TEXT.png"} />
+          <img alt="logo" className="logo" src={"/IC_TEXT.png"} />
         </a>
         <p className="text" dangerouslySetInnerHTML={{ __html: text }}></p>
         <div className="footer">
