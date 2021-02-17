@@ -1,0 +1,54 @@
+.about-page-container {
+  background-color: #e2e2e2;
+  font-size: 38px;
+  color: #60656a;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
+  padding-top: 8%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 22px;
+  padding: 12px 0px;
+  font-weight: bold;
+}
+
+.email {
+  font-size: 18px;
+  font-weight: normal;
+  padding: 4px 0px;
+}
+
+.copyright {
+  font-size: 16px;
+  font-weight: normal;
+  padding-top: 4px;
+}
+
+.logo {
+  height: 250px;
+}
+
+.text {
+  width: 38%;
+}
+
+@media (max-width: 600px) {
+  .about-page-container {
+    font-size: 26px;
+    padding: 0px 16px;
+  }
+  .text {
+    width: 100%;
+  }
+  .logo {
+    width: 100%;
+  }
+}
