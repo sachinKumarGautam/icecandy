@@ -1,4 +1,6 @@
 import React from "react";
+import { IKImage, IKContext } from "imagekitio-react";
+
 import "./about.css";
 
 class About extends React.Component {
@@ -8,18 +10,36 @@ class About extends React.Component {
     content for  TV channels, TV serials and feature length films`;
     return (
       <div className="about-page-container">
-        <a href="/">
-          <img alt="logo" className="logo" src={"/IC_TEXT.png"} />
-        </a>
-        <p className="text" dangerouslySetInnerHTML={{ __html: text }}></p>
-        <div className="footer">
-          <div>contact us</div>
-          <a href="mailto:hi@icecandy.in" className="email">
-            hi@icecandy.in
+        <div className="left">
+          <a href="/">
+            <img alt="logo" className="logo" src={"/IC_TEXT.png"} />
           </a>
-          <div className="copyright">
-            © icecandy . 2021 . All Rights Reserved
+          <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
+            <IKImage
+              path={"/Frame_3.png"}
+              className="office-pic mobile"
+              lqip={{ active: true }}
+            />
+          </IKContext>
+          <p className="text" dangerouslySetInnerHTML={{ __html: text }}></p>
+          <div className="footer">
+            <div>contact us</div>
+            <a href="mailto:hi@icecandy.in" className="email">
+              hi@icecandy.in
+            </a>
+            <div className="copyright">
+              © icecandy . 2021 . All Rights Reserved
+            </div>
           </div>
+        </div>
+        <div className="right">
+          <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
+            <IKImage
+              path={"/Frame_3.png"}
+              className="office-pic"
+              lqip={{ active: true }}
+            />
+          </IKContext>
         </div>
       </div>
     );
