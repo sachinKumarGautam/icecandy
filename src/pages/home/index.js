@@ -125,7 +125,18 @@ class Home extends React.Component {
     showTile: false,
     selectedTile: {},
     openPopup: false,
+    orientation: null,
   };
+
+  componentDidMount() {
+    window.addEventListener("orientationchange", (e) => {
+      console.log("orientation event", e.target.screen.orientation.angle);
+      this.setState((p) => ({
+        orientation:
+          e.target.screen.orientation.angle === 90 ? "landscape" : "portrait",
+      }));
+    });
+  }
 
   toggleTiles = (e) => {
     e.preventDefault();
@@ -169,9 +180,9 @@ class Home extends React.Component {
   };
 
   render() {
-    const { selectedTile } = this.state;
+    const { selectedTile, orientation, isMobile } = this.state;
     return (
-      <div className="container">
+      <div className="container" ref={"homeContainer"}>
         <div
           id="homescreen"
           style={{ height: "100vh", textAlign: "center", width: "100vw" }}
@@ -202,14 +213,6 @@ class Home extends React.Component {
         {this.state.showTile ? (
           <React.Fragment>
             <div className="tiles-container">
-              {/* <div className="tiles-header">
-              <a href="/" className="backLink">
-                GO BACK
-              </a>
-              <a href="/about" className="aboutLink">
-                ABOUT
-              </a>
-            </div> */}
               <div className="tiles-grid-wrapper">
                 {tilesObj.map((item, index) => {
                   return (
@@ -253,28 +256,31 @@ class Home extends React.Component {
                   <div onClick={() => this.closePopup()} className="close-btn">
                     X
                   </div>
-                  <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
-                    <IKImage
-                      className="tile-bg"
-                      path={
-                        window.innerWidth > 600
-                          ? `${selectedTile.innerTileImage}`
-                          : `${selectedTile.innerTileMobile}`
-                      }
-                      lqip={{ active: true }}
-                      loading="lazy"
-                    />
-                  </IKContext>
-                  {/* <img
-                    className="tile-bg"
-                    loading="lazy"
-                    src={
-                      window.innerWidth > 600
-                        ? selectedTile.innerTileImage
-                        : selectedTile.innerTileMobile
-                    }
-                    alt="tile-bg"
-                  /> */}
+                  {(window.innerWidth > 600 && !orientation) ||
+                  orientation === "landscape" ? (
+                    <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
+                      <IKImage
+                        className="tile-bg"
+                        key={selectedTile.hoverText}
+                        path={selectedTile.innerTileImage}
+                        lqip={{ active: true }}
+                        loading="lazy"
+                      />
+                    </IKContext>
+                  ) : null}
+
+                  {(window.innerWidth < 600 && !orientation) ||
+                  orientation === "portrait" ? (
+                    <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
+                      <IKImage
+                        className="tile-bg"
+                        key={selectedTile.hoverText}
+                        path={selectedTile.innerTileMobile}
+                        lqip={{ active: true }}
+                        loading="lazy"
+                      />
+                    </IKContext>
+                  ) : null}
                 </div>
               </div>
             ) : null}
