@@ -16,7 +16,7 @@ class About extends React.Component {
           </a>
           <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage
-              path={"/Frame_3.png"}
+              path={"/Frame_4.png"}
               className="office-pic mobile"
               lqip={{ active: true }}
             />
