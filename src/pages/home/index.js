@@ -180,7 +180,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { selectedTile, orientation, isMobile } = this.state;
+    const { selectedTile, orientation } = this.state;
     return (
       <div className="container" ref={"homeContainer"}>
         <div
