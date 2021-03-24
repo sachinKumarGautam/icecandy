@@ -83,6 +83,7 @@
 .ctaLink {
   text-decoration: none;
   outline: none;
+  margin-left: 44px;
 }
 
 .ctaLink:focus {
