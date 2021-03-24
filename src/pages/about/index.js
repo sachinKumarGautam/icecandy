@@ -12,7 +12,7 @@ class About extends React.Component {
       <div className="about-page-container">
         <div className="left">
           <a href="/">
-            <img alt="logo" className="logo" src={"/IC_TEXT.png"} />
+            <img alt="logo" className="logo" src={"/IC_text_new.png"} />
           </a>
           <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage

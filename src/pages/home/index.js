@@ -72,7 +72,7 @@ const tilesObj = [
   {
     innerTileImage: "TILE_INSIDE_MAIN_IMAGE_J.jpg",
     innerTileMobile: "Tile_inside_main__images_J_PORTRAIT.jpg",
-    smallTile: "Tile_images_J.png",
+    smallTile: "Tile_image_J_new.png",
     hoverText: "Welcome",
     hoverColor: "rgb(252,41,73)",
   },
@@ -182,37 +182,42 @@ class Home extends React.Component {
   render() {
     const { selectedTile, orientation } = this.state;
     return (
-      <div className="container" ref={"homeContainer"}>
+      <div className="container" id="homescreen">
         <div
-          id="homescreen"
-          style={{ height: "100vh", textAlign: "center", width: "100vw" }}
+          className="homescreen-container"
+          // style={{ height: "100vh", textAlign: "center", width: "100vw" }}
         >
-          <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
+          <div className="homescreen-inner-container">
+            <img alt="logo" className="homepage-bg" src={"/IC_text_new.png"} />
+            <div className="subText">Animation studio by Sanjiv Waeerkar</div>
+            {/* <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage
+              className="homepage-bg"
               path={
                 window.innerWidth > 600
                   ? "/Home_page.jpg"
                   : "/Home_page_PORTRAIT.jpg"
               }
               lqip={{ active: true }}
-              style={{ width: "inherit", height: "100%" }}
+              // style={{ width: "inherit", height: "100%" }}
             />
-          </IKContext>
-          <div className="ctaContainer">
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={(e) => this.toggleTiles(e)}
-            >
-              WORK
+          </IKContext> */}
+            <div className="ctaContainer">
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={(e) => this.toggleTiles(e)}
+              >
+                WORK
+              </div>
+              <Link className="ctaLink" to={"/about"}>
+                ABOUT
+              </Link>
             </div>
-            <Link className="ctaLink" to={"/about"}>
-              ABOUT
-            </Link>
           </div>
         </div>
         {this.state.showTile ? (
           <React.Fragment>
-            <div className="tiles-container">
+            <div className="tiles-container" id="tiles-container">
               <div className="tiles-grid-wrapper">
                 {tilesObj.map((item, index) => {
                   return (
