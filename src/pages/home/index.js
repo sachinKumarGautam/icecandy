@@ -122,7 +122,7 @@ const tilesObj = [
 
 class Home extends React.Component {
   state = {
-    showTile: false,
+    showTile: true,
     selectedTile: {},
     openPopup: false,
     orientation: null,
@@ -136,19 +136,25 @@ class Home extends React.Component {
           e.target.screen.orientation.angle === 90 ? "landscape" : "portrait",
       }));
     });
+    window.onload = function(){
+      setTimeout(() => {
+        document.getElementById("autoplay").play()
+      }, 1000)
+    }
   }
 
   toggleTiles = (e) => {
+    console.log('sdsddd :>> ');
     e.preventDefault();
     e.stopPropagation();
-    let homescreen = document.getElementById("homescreen");
-
+    let videoContainer = document.getElementById("video-container");
+    console.log('videoContainer.offsetHeight :>> ', videoContainer.offsetHeight);
     this.setState(
       (prevState) => ({ showTile: true || !prevState.showTile }),
       () => {
         setTimeout(() => {
           window.scrollTo({
-            top: homescreen.offsetHeight,
+            top: videoContainer.offsetHeight,
             left: 0,
             behavior: "smooth",
           });
@@ -183,13 +189,46 @@ class Home extends React.Component {
     const { selectedTile, orientation } = this.state;
     return (
       <div className="container" id="homescreen">
-        <div
+        <div className="video-container" id="video-container">
+        <video muted="muted" id="autoplay">
+          {window.innerWidth < 640 ? 
+            <source src="/Icecandy.in_website.mp4" type="video/mp4" /> : 
+              <source src="/Icecandy.in_website.mp4" type="video/mp4" />}
+        </video>
+        <div className="content">
+				<div className="topTextContainer">
+          <img alt="logo" className="homepage-bg" src={"/IC_text_new.png"} />
+          <div className="subText">Animation studio by Sanjiv Waeerkar</div>
+        </div>
+        {/* <div>
+          <span>sjkajska</span>
+        </div> */}
+            <div className="ctaContainer">
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={(e) => this.toggleTiles(e)}
+              >
+                WORK
+              </div>
+              <Link className="ctaLink" to={"/about"}>
+                ABOUT
+              </Link>
+            </div>
+			</div>
+          
+      <div className="scroll-down" 
+           style={{ cursor: "pointer", zIndex:2  }}
+      >
+        <img onClick={(e) => this.toggleTiles(e)} alt="logo" className="scroll-down-icon" src={"/mouse-cursor.png"} /></div>
+      </div>  
+        {/* <div
           className="homescreen-container"
           // style={{ height: "100vh", textAlign: "center", width: "100vw" }}
         >
-          <div className="homescreen-inner-container">
-            <img alt="logo" className="homepage-bg" src={"/IC_text_new.png"} />
-            <div className="subText">Animation studio by Sanjiv Waeerkar</div>
+          <div className="homescreen-inner-container"> */}
+            
+            {/* <img alt="logo" className="homepage-bg" src={"/IC_text_new.png"} /> */}
+            {/* <div className="subText">Animation studio by Sanjiv Waeerkar</div> */}
             {/* <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
             <IKImage
               className="homepage-bg"
@@ -202,7 +241,7 @@ class Home extends React.Component {
               // style={{ width: "inherit", height: "100%" }}
             />
           </IKContext> */}
-            <div className="ctaContainer">
+            {/* <div className="ctaContainer">
               <div
                 style={{ cursor: "pointer" }}
                 onClick={(e) => this.toggleTiles(e)}
@@ -212,9 +251,9 @@ class Home extends React.Component {
               <Link className="ctaLink" to={"/about"}>
                 ABOUT
               </Link>
-            </div>
-          </div>
-        </div>
+            </div> */}
+          {/* </div>
+        </div> */}
         {this.state.showTile ? (
           <React.Fragment>
             <div className="tiles-container" id="tiles-container">
@@ -224,7 +263,10 @@ class Home extends React.Component {
                     <div
                       key={index}
                       className="tile"
-                      onClick={() => this.openTile(item)}
+                      onClick={(e) => {
+                        this.openTile(item)
+                        this.toggleTiles(e)
+                      }}
                     >
                       <IKContext urlEndpoint="https://ik.imagekit.io/nr8jbipyb/">
                         <IKImage

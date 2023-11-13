@@ -19,6 +19,56 @@
   position: absolute; */
 }
 
+.topTextContainer {
+
+}
+
+.video-container {
+	position: absolute;
+  z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: black url('https://traversymedia.com/downloads/cover.jpg') no-repeat center
+		center/cover;
+}
+
+.video-container video {
+	min-width: 100%;
+	min-height: 100%;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
+
+.content {
+	z-index: 2;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  position: absolute;
+  /* padding: 36px; */
+}
+
+.topTextContainer {
+  margin: 36px
+}
+.video-container:after {
+	content: '';
+	z-index: 1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	position: absolute;
+}
+
 .homescreen-container {
   width: 100%;
   height: 100%;
@@ -38,16 +88,15 @@
 }
 
 .subText {
-  color: #fff;
+  color: #000;
   text-align: center;
-  color: #97bcf0;
-  font-size: 38px;
+  font-size: 28px;
   margin-top: 10px;
 }
 
 .homepage-bg {
   width: auto;
-  height: 120px;
+  height: 56px;
 }
 .home {
   width: 100%;
@@ -56,6 +105,8 @@
 
 .tiles-container {
   width: 100%;
+  padding-bottom: 100px;
+  padding-top: 100vh;
   /* min-height: 100vh; */
 }
 
@@ -67,27 +118,56 @@
 
 .ctaContainer {
   display: flex;
-  color: #fff;
-  font-size: 36px;
-  grid-template-columns: 1fr 1fr;
+  color: #000;
+  font-size: 38px;
+  margin: 36px;
+  -webkit-text-stroke: 1px #fff;
+  /* grid-template-columns: 1fr 1fr; */
   /* grid-gap: 32px; */
-  outline: none;
-  width: fit-content;
-  margin-top: 100px;
+  /* outline: none; */
+  /* width: fit-content; */
 }
 
-.ctaContainer:focus {
+/* .ctaContainer:focus {
   outline: none;
-}
+} */
 
 .ctaLink {
   text-decoration: none;
   outline: none;
   margin-left: 44px;
+  -webkit-text-stroke: 1px #fff;
+
 }
 
 .ctaLink:focus {
   outline: none;
+}
+
+.scroll-down {
+  position:  absolute;
+  bottom:64px;
+  transform: translate(-50%, 0);
+  left: 50%;
+    display: flex;
+    justify-content: center;
+    animation: jumpInfinite 1.5s infinite;
+}
+
+.scroll-down-icon {
+  width: 78px;
+}
+
+@keyframes jumpInfinite {
+  0% {
+    bottom: 64px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 64px;
+  }
 }
 
 .tile {
@@ -193,7 +273,7 @@
 
 @media (max-width: 600px) {
   .homepage-bg {
-    width: 82%;
+    width: 100%;
     height: auto;
   }
   .subText {
